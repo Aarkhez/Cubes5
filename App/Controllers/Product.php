@@ -19,7 +19,7 @@ class Product extends \Core\Controller
     public function indexAction()
     {
 
-        if(isset($_POST['submit'])) {
+        if (isset($_POST['submit'])) {
 
             try {
                 $f = $_POST;
@@ -62,5 +62,10 @@ class Product extends \Core\Controller
             'article' => $article[0],
             'suggestions' => $suggestions
         ]);
+    }
+
+    public function contactAction()
+    {
+        View::renderTemplate('Product/contact.html');
     }
 }
