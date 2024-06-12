@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: lamp_web
+    restart: always
     ports:
       - "80:80"
     volumes:
@@ -16,6 +17,7 @@ services:
   db:
     image: mysql:8.0
     container_name: lamp_db
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: my_database
@@ -29,6 +31,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: lamp_phpmyadmin
+    restart: always
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: rootpassword
