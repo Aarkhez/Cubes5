@@ -20,11 +20,12 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: my_database
+      MYSQL_DATABASE: videgrenierenligne
       MYSQL_USER: user
       MYSQL_PASSWORD: userpassword
     volumes:
       - db_data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
     networks:
       - lamp-network
  
