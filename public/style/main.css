@@ -1951,11 +1951,9 @@ footer {
     padding-left: 30px;
     float: left;
     color: #7e7e7e; }
-    .single-article .author .sv-name a {
+    .single-article .author .sv-name p {
       font-weight: 500;
       color: #2e2e2e; }
-      .single-article .author .sv-name a:hover {
-        color: #ea2c5a; }
     .single-article .author .sv-name .c-sub {
       padding-top: 13px;
       float: left; }
