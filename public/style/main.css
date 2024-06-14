@@ -2473,9 +2473,6 @@ footer {
 .text-center {
   text-align: center;
 }
-.hidden-xs {
-  display: none;
-}
 .ml-2 {
   margin-left: 2rem;
 }
@@ -2507,6 +2504,23 @@ footer {
 
 .flex-col{
   flex-direction: column;
-}/*
+}
+.width-80{
+  width: 80%;
+}
+.mb-1{
+  margin-bottom: 1.5rem;
+}
+.my-3{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.error-message-input{
+  color: red;
+  margin-top: 0.5rem;
+}
+
+/*
 * Content Upload END
 */
