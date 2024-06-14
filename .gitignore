@@ -4,6 +4,6 @@ vendor
 node_modules
 public/storage
 
-# Files
+
 composer.lock
 App/Config.php

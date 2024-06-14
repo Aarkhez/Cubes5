@@ -1,15 +1,113 @@
 {% extends "base.html" %}
 
-{% block title %}Page de test{% endblock %}
+{% block title %}Page de Contact{% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="test-div">
-                Test
+<div class="flex justify-center my-3">
+    <div style="width: 80%;">
+        <form action="/contact" method="post" onsubmit="return validateForm(event);">
+            <div class="mb-1">
+                <label class="form-label">Nom</label>
+                <input type="text" name="nom" class="form-control" required />
+            </div>
+            <div class="mb-1">
+                <label class="form-label">Prénom</label>
+                <input type="text" name="prenom" class="form-control" required />
+            </div>
+            <div class="mb-1">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="loginEmail" required />
+                <span id="emailError" class="error-message-input"></span>
+            </div>
+            <div class="mb-1">
+                <label class="form-label">Message</label>
+                <textarea name="message" class="form-control" required></textarea>
+            </div>
+            <div class="mb-1 text-center">
+                <button type="submit" class="btn btn-primary">Soumettre</button>
+                <br>
+                <span id="submitError" class="error-message-input"></span>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal" tabindex="-1" id="successmail">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p class="mt-3">
+                    L'envoi du mail s'est déroulé avec succès !
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary close-modal"
+                onclick="closeModal()">Fermer</button>
             </div>
         </div>
     </div>
 </div>
+<div class="modal" tabindex="-1" id="errormail">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p class="mt-3">
+                    Une erreur est survenue lors de l'envoi du mail !<br>Veuillez en informer l'équipe du vide grenier.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary close-modal"
+                onclick="closeModal()">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function () {
+        // Vérifie si le paramètre GET 'success' est présent dans l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('success')) {
+            if (urlParams.get('success') == 1) {
+                jQuery('#successmail').modal('show');
+            }
+            if (urlParams.get('success') == 0) {
+                jQuery('#errormail').modal('show');
+            }
+        }
+    });
+
+    const emailInput = document.getElementById("loginEmail");
+    const emailError = document.getElementById("emailError");
+    let email;
+    let emailRegex;
+
+    const submitError = document.getElementById("submitError");
+
+    emailInput.addEventListener("blur", function () {
+        email = emailInput.value;
+        emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (!emailRegex.test(email)) {
+            emailError.textContent = "Adresse e-mail invalide. Veuillez saisir une adresse e-mail valide.";
+            emailInput.style.border = "solid red 0.1em";
+        } else {
+            emailError.textContent = ""; // Efface le message d'erreur s'il y en a un
+            emailInput.style.border = "none";
+        }
+    });
+    function validateForm(event) {
+        // Effectuez votre validation ici
+        if (!emailRegex.test(email)) {
+            event.preventDefault(); // Empêche l'envoi du formulaire
+            submitError.textContent = "Veuillez corriger les erreurs avant de soumettre le formulaire.";
+            return false; // Empêche l'envoi du formulaire
+        }
+        return true; // Autorise l'envoi du formulaire
+    }
+
+    function closeModal() {
+        $('#successmail').modal('hide'); // Pour fermer la modal de succès
+        $('#errormail').modal('hide');  // Pour fermer la modal d'erreur
+    }
+</script>
 {% endblock body %}
