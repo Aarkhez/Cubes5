@@ -1,19 +1,34 @@
 version: '3.7'
- 
+
+name: cubes5
+
 services:
-  web:
+  main:
     build:
       context: .
-      dockerfile: Dockerfile
-    container_name: lamp_web
+      dockerfile: DockerfileMain
+    container_name: lamp_main
+    restart: always
+    ports:
+      - "8081:80"
+    volumes:
+      - main:/var/www/html
+    networks:
+      - lamp-network
+
+  stage:
+    build:
+      context: .
+      dockerfile: DockerfileStage
+    container_name: lamp_stage
     restart: always
     ports:
       - "80:80"
     volumes:
-      - web:/var/www/html
+      - stage:/var/www/html
     networks:
       - lamp-network
- 
+
   db:
     image: mysql:8.0
     container_name: lamp_db
@@ -28,7 +43,7 @@ services:
       - ./sql:/docker-entrypoint-initdb.d
     networks:
       - lamp-network
- 
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: lamp_phpmyadmin
@@ -40,10 +55,11 @@ services:
       - "8080:80"
     networks:
       - lamp-network
- 
+
 networks:
   lamp-network:
- 
+
 volumes:
   db_data:
-  web:
+  stage:
+  main:
