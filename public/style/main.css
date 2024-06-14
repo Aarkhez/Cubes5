@@ -1089,9 +1089,6 @@ video {
       .single-v-footer-switch > a.active span, .single-v-footer-switch > a.active i::before {
         color: #ea2c5a; }
 
-.cb-content {
-  width: 130% !important; }
-
 /*
 * Content Index END
 */
@@ -1289,6 +1286,7 @@ ul.menu {
       display: none; } }
   @media only screen and (max-width: 767px) {
     .navbar-brand span {
+      white-space: nowrap;
       margin-left: 10px;
       margin-top: 4px;
       font-size: 20px;
