@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Connexion{% endblock %}
 {% block body %}
-<div class="container-fluid bg-image d-flex align-items-center justify-content-center m-bt-15">
-    <div class="row flex item-center w-100">
+<div class="container-fluid  d-flex align-items-center justify-content-center m-bt-15">
         <div class="col-md-6 d-flex align-items-center">
             <div class="b-text text-left w-100">
                 Des <span class="color-active">centaines<br></span> 
@@ -11,14 +10,20 @@
         </div>
         <div class="col-md-6">
             <div class="login-wrapper">
-                <div class="hidden-xs text-center mb-4">
-                    <img src="images/login.jpg" alt="Login Image" class="img-fluid">
-                </div>
                 <div class="login-window p-4 shadow">
                     <div class="l-head text-center mb-3">
                         Connexion
                     </div>
                     <div class="l-form">
+                        {% if flash %}
+        {% for type, messages in flash %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
                         <form action="" method="post">
                             <div class="form-group">
                                 <label class="ml-1 flex justify-start" for="exampleInputEmail1">Email</label>
@@ -40,8 +45,8 @@
                                     <button type="submit" name="submit" class="btn btn-cv1 w-100">Connexion</button>
                                 </div>
                                 <div class="hidden-xs col-lg-5 text-center d-flex align-items-center justify-content-center">
-                                    <span class="px-2">or</span>
-                                    <a href="signup.html">Inscription</a>
+                                    <div class="col-lg-1 ortext">ou</div>
+                                    <a href="/register">Inscription</a>
                                 </div>
                             </div>
                             <div class="row hidden-xs mt-3">
