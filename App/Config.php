@@ -14,7 +14,7 @@ class Config
      * Database host
      * @var string
      */
-    const DB_HOST = 'db:3306';
+    const DB_HOST = 'localhost:8889';
 
     /**
      * Database name
@@ -26,13 +26,13 @@ class Config
      * Database user
      * @var string
      */
-    const DB_USER = 'root';
+    const DB_USER = 'adrien';
 
     /**
      * Database password
      * @var string
      */
-    const DB_PASSWORD = 'rootpassword';
+    const DB_PASSWORD = 'carjager';
 
     /**
      * Show or hide error messages on screen
