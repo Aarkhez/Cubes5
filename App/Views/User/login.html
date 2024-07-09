@@ -1,65 +1,64 @@
 {% extends "base.html" %}
-
 {% block title %}Connexion{% endblock %}
-
 {% block body %}
-<div class="container-fluid bg-image">
-    <div class="row">
-        <div class="login-wraper">
-            <div class="hidden-xs">
-                <img src="images/login.jpg" alt="">
+<div class="container-fluid  d-flex align-items-center justify-content-center m-bt-15">
+        <div class="col-md-6 d-flex align-items-center">
+            <div class="b-text text-left w-100">
+                Des <span class="color-active">centaines<br></span> 
+                <span class="color-b1">d'articles vous</span> attendent
             </div>
-            <div class="banner-text hidden-xs">
-                <div class="line"></div>
-                <div class="b-text">
-                    Des <span class="color-active">centaines<br> </span> <span class="color-b1">d'articles vous
-                </span>attendent
+        </div>
+        <div class="col-md-6">
+            <div class="login-wrapper">
+                <div class="login-window p-4 shadow">
+                    <div class="l-head text-center mb-3">
+                        Connexion
+                    </div>
+                    <div class="l-form">
+                        {% if flash %}
+        {% for type, messages in flash %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}">
+                    {{ message }}
                 </div>
-            </div>
-            <div class="login-window">
-                <div class="l-head">
-                    Connexion
-                </div>
-                <div class="l-form">
-                    <form action="" method="post">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" name="email"
-                                   placeholder="sample@gmail.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                   name="password" placeholder="**********">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="#">
-                                    <span class="arrow"></span>
-                                </label> <span>Se souvenir de moi</span>
-                                <span class="text2">(non recommandé si vous êtes sur un ordinateur partagé)</span>
-                            </label>
-                        </div>
-                        <div class="row">
-                            <div
-                                    class="col-lg-7"><button type="submit" name="submit" class="btn btn-cv1">Connexion
-                                </button></div>
-                            <div class="hidden-xs">
-                                <div class="col-lg-1 ortext">or</div>
-                                <div class="col-lg-4 signuptext"><a href="signup.html">Inscription</a></div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label class="ml-1 flex justify-start" for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="sample@gmail.com">
                             </div>
-                        </div>
-                        <div class="row hidden-xs">
-                            <div class="col-lg-12 forgottext">
-                                <a href="#">Mot de passe oublié ?</a>
+                            <div class="form-group">
+                                <label class="ml-1 flex justify-start" for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="**********">
                             </div>
-                        </div>
-                    </form>
+                            <div class="form-group flex justify-center form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe" name="#">
+                               <div class="flex-col item-start flex ml-2">
+                                    <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+                                    <span class="text-muted small d-block">(non recommandé si vous êtes sur un ordinateur partagé)</span>
+                                </div>
+                            </div>
+                            <div class="row w-100 justify-center flex">
+                                <div class="col-lg-7">
+                                    <button type="submit" name="submit" class="btn btn-cv1 w-100">Connexion</button>
+                                </div>
+                                <div class="hidden-xs col-lg-5 text-center d-flex align-items-center justify-content-center">
+                                    <div class="col-lg-1 ortext">ou</div>
+                                    <a href="/register">Inscription</a>
+                                </div>
+                            </div>
+                            <div class="row hidden-xs mt-3">
+                                <div class="col-lg-12 text-center">
+                                    <a href="#">Mot de passe oublié ?</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock %}

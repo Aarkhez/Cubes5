@@ -327,8 +327,15 @@ label.clipboard {
   label.clipboard:hover .btn-copy {
     background-color: #b5b5b5;
     color: white; }
-
-.login-window input {
+.login-window {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+    .login-window input {
   height: 46px;
   padding-top: 18px; }
 
@@ -1082,9 +1089,6 @@ video {
       .single-v-footer-switch > a.active span, .single-v-footer-switch > a.active i::before {
         color: #ea2c5a; }
 
-.cb-content {
-  width: 130% !important; }
-
 /*
 * Content Index END
 */
@@ -1282,6 +1286,7 @@ ul.menu {
       display: none; } }
   @media only screen and (max-width: 767px) {
     .navbar-brand span {
+      white-space: nowrap;
       margin-left: 10px;
       margin-top: 4px;
       font-size: 20px;
@@ -1946,11 +1951,9 @@ footer {
     padding-left: 30px;
     float: left;
     color: #7e7e7e; }
-    .single-article .author .sv-name a {
+    .single-article .author .sv-name p {
       font-weight: 500;
       color: #2e2e2e; }
-      .single-article .author .sv-name a:hover {
-        color: #ea2c5a; }
     .single-article .author .sv-name .c-sub {
       padding-top: 13px;
       float: left; }
@@ -2440,6 +2443,79 @@ footer {
     padding: 30px 0 20px;
     margin: 0 auto;
     max-width: 340px; } }
+  .container-fluid.bg-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.b-text {
+  text-align: center;
+  font-size: 4em; /* Augmente la taille du texte */
+  width: 100%;
+  max-width: 500px; /* Limite la largeur maximale */
+  margin: 0 auto; /* Centre le texte horizontalement */
+}
+.text-center {
+  text-align: center;
+}
+.ml-2 {
+  margin-left: 2rem;
+}
+.ml-1 {
+  margin-left: 1rem;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-start {
+  justify-content: start;
+}
+.flex {
+  display: flex;
+}
+.item-center {
+  align-items: center;
+}
+.item-start {
+  align-items: start;  
+}
+.m-bt-15 {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+.W-full{
+  width: 100%;
+}
+
+.flex-col{
+  flex-direction: column;
+}
+.width-80{
+  width: 80%;
+}
+.mb-1{
+  margin-bottom: 1.5rem;
+}
+.my-3{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.error-message-input{
+  color: red;
+  margin-top: 0.5rem;
+}
 
 /*
 * Content Upload END
