@@ -1294,6 +1294,7 @@ ul.menu {
       font-weight: bold; } }
 
 .navbar-container {
+  background-color: hotpink;
   position: relative;
   height: 70px;
   border-bottom: solid 1px #eceff0; }
