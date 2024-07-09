@@ -1089,9 +1089,6 @@ video {
       .single-v-footer-switch > a.active span, .single-v-footer-switch > a.active i::before {
         color: #ea2c5a; }
 
-.cb-content {
-  width: 130% !important; }
-
 /*
 * Content Index END
 */
@@ -1289,6 +1286,7 @@ ul.menu {
       display: none; } }
   @media only screen and (max-width: 767px) {
     .navbar-brand span {
+      white-space: nowrap;
       margin-left: 10px;
       margin-top: 4px;
       font-size: 20px;
@@ -1953,11 +1951,9 @@ footer {
     padding-left: 30px;
     float: left;
     color: #7e7e7e; }
-    .single-article .author .sv-name a {
+    .single-article .author .sv-name p {
       font-weight: 500;
       color: #2e2e2e; }
-      .single-article .author .sv-name a:hover {
-        color: #ea2c5a; }
     .single-article .author .sv-name .c-sub {
       padding-top: 13px;
       float: left; }
@@ -2473,9 +2469,6 @@ footer {
 .text-center {
   text-align: center;
 }
-.hidden-xs {
-  display: none;
-}
 .ml-2 {
   margin-left: 2rem;
 }
@@ -2507,6 +2500,23 @@ footer {
 
 .flex-col{
   flex-direction: column;
-}/*
+}
+.width-80{
+  width: 80%;
+}
+.mb-1{
+  margin-bottom: 1.5rem;
+}
+.my-3{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.error-message-input{
+  color: red;
+  margin-top: 0.5rem;
+}
+
+/*
 * Content Upload END
 */
