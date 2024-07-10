@@ -107,7 +107,7 @@ class User extends \Core\Controller
         return null; // Ou gérer le cas d'erreur selon votre logique
     }
 }
-    private function login($data){
+function login($data){
         try {
             if(!isset($data['email'])){
                 throw new Exception('TODO');
