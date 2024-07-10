@@ -1,17 +1,9 @@
 <?php
 
 require dirname(__DIR__) . '/../vendor/autoload.php';
-
-use OpenApi\Generator;
-
-// Scan des contrôleurs pour générer la documentation
-$openapi = Generator::scan([dirname(__DIR__) . '/App/Controllers/Api.php']);
-
-// Définir les serveurs si nécessaire
-$openapi->servers = [['url' => '/swagger']];
-
-// Header pour indiquer que le contenu est JSON
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+$openapi = \OpenApi\Generator::scan([__DIR__ . '/../../App/Controllers']);
 header('Content-Type: application/json');
-
-// Afficher le JSON généré
-echo $openapi->toJson();
+echo $openapi->toJSON();
