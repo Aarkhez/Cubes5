@@ -1,6 +1,6 @@
 # Vide Grenier en Ligne
 
-Ce Readme.md est à destination des futurs repreneurs du site-web Vide Grenier en Ligne.
+Vide Grenier en Ligne est un site internet conçu en php et javascript. Il permet de vendre des objets en ligne.
 
 ## Mise en place du projet back-end
 
