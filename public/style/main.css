@@ -1293,8 +1293,12 @@ ul.menu {
       color: #ea2c5a;
       font-weight: bold; } }
 
+.footer-base {
+  background-color: orange;
+}      
+
 .navbar-container {
-  background-color: hotpink;
+  background-color: orange;
   position: relative;
   height: 70px;
   border-bottom: solid 1px #eceff0; }
